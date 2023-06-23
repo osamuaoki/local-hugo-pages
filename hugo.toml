@@ -1,0 +1,64 @@
+baseURL = 'http://localhost:8080'
+languageCode = 'en-us'
+title = 'Private Hugo site'
+googleAnalytics = ""
+disqusShortname = ""
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$"]
+footnotereturnlinkcontents = "↩"
+enableGitInfo = true
+
+# This is flat
+[permalinks]
+  soft = "/soft/:year-:month-:day-:slug/"
+  hard = "/hard/:year-:month-:day-:slug/"
+  life = "/life/:year-:month-:day-:slug/"
+
+[menu]
+[[menu.main]]
+    name = "Home"
+    url = ""
+    weight = 1
+[[menu.main]]
+    name = "Software"
+    url = "soft/"
+    weight = 2
+[[menu.main]]
+    name = "Hardware"
+    url = "hard/"
+    weight = 3
+[[menu.main]]
+    name = "Life"
+    url = "life/"
+    weight = 4
+[[menu.main]]
+    name = "Categories"
+    url = "categories/"
+    weight = 5
+[[menu.main]]
+    name = "Tags"
+    url= "tags/"
+    weight = 6
+[[menu.main]]
+    name = "Memo"
+    url= "memo"
+    weight = 7
+[[menu.main]]
+    name = "URLs"
+    url= "urls"
+    weight = 8
+[[menu.main]]
+    name = "Subscribe"
+    url = "index.xml"
+    weight = 9
+
+[params]
+  description = "A website built through Hugo."
+  footer = "&copy; [Osamu Aoki](https://osamuaoki.github.io/) 2023 -- {Year} | [Github](https://github.com/osamuaoki)"
+
+[markup]
+  [markup.highlight]
+    codeFences = false
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+

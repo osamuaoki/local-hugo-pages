@@ -1,0 +1,61 @@
+{{ partial "header.html" . }}
+<div class="article-meta">
+<h1><span class="title">{{ .Title | markdownify }}</span></h1>
+{{ with .Params.author }}<h2 class="author">{{ . }}</h2>{{ end }}
+<h3 class="date">Date:
+{{ .Date.Format "2006/01/02" }} (initial publish),
+{{ .Page.Lastmod.Format "2006/01/02"}} (last update)
+</h3>
+<h3 class="source">Source:
+{{ .Page.File }}
+</h3>
+</div>
+
+<main>
+
+
+<table width="100%">
+  <tbody>
+  <tr>
+  {{ if .PrevInSection }}
+  <td align="left" width="33%"><a href="{{.PrevInSection.Permalink}}">Previous Post</a></td>
+  {{ else }}
+  <td align="left" width="33%"><a href="#">***</a></td>
+  {{ end }}
+  <td align="center" width="33%"><a href="/{{.File.Dir}}">Top</a></td>
+  {{ if .NextInSection }}
+  <td align="right" width="33%"><a href="{{.NextInSection.Permalink}}">Next Post</a></td>
+  {{ else }}
+  <td align="right" width="33%"><a href="#">***</a></td>
+  {{ end }}
+  </tr>
+  </tbody>
+</table>
+
+<h2>TOC</h2>
+
+{{.TableOfContents}}
+
+{{ .Content }}
+
+<table width="100%">
+  <tbody>
+  <tr>
+  {{ if .PrevInSection }}
+  <td align="left" width="33%"><a href="{{.PrevInSection.Permalink}}">Previous Post</a></td>
+  {{ else }}
+  <td align="left" width="33%"><a href="#">***</a></td>
+  {{ end }}
+  <td align="center" width="33%"><a href="/{{.File.Dir}}">Top</a></td>
+  {{ if .NextInSection }}
+  <td align="right" width="33%"><a href="{{.NextInSection.Permalink}}">Next Post</a></td>
+  {{ else }}
+  <td align="right" width="33%"><a href="#">***</a></td>
+  {{ end }}
+  </tr>
+  </tbody>
+</table>
+
+</main>
+
+{{ partial "footer.html" . }}
